@@ -36,4 +36,7 @@ public class balls : MonoBehaviour {
 			transform.Rotate (Vector3.forward * Time.deltaTime * rotationangle);
 		}
 	}
+	void OnTriggerEnter2D(Collider2D other) {
+		Destroy(other.gameObject,0.02f);
+	}
 }
