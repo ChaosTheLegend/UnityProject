@@ -15,7 +15,6 @@ public class movement : MonoBehaviour {
 	void FixedUpdate () {
 		moveHorizontal = Input.GetAxis ("Horizontal");
 		transform.position = new Vector3 (Mathf.Clamp (transform.position.x + moveHorizontal * speed, -7.7f, 7.7f), -4.4f, 0f);
-		transform.rotation = Quaternion.Euler(0, 0, maxtilt * -moveHorizontal);
-	
+		transform.rotation = Quaternion.Euler (0, 0, maxtilt * -moveHorizontal);
 	}
 }

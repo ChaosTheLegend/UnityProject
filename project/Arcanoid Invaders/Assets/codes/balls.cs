@@ -19,7 +19,6 @@ public class balls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (state == 0) {
-			transform.SetParent(folowingobj);
 			rb.isKinematic = true;
 
 			if (Input.GetKeyUp (KeyCode.Space)) {
@@ -37,6 +36,8 @@ public class balls : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter2D(Collider2D other) {
-		Destroy(other.gameObject,0.02f);
+		if (other.gameObject.name != "destroyer") {
+			Destroy (other.gameObject, 0.02f);
+		}
 	}
 }
