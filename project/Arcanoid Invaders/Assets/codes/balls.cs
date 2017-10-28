@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class balls : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class balls : MonoBehaviour {
 		if (state == 0) {
 			rb.isKinematic = true;
 
-			if (Input.GetKeyUp (KeyCode.Space)) {
+			if (CrossPlatformInputManager.GetButtonDown("Shoot")) {
 				state = 1;
 			}
 		}
