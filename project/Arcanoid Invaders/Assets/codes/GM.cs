@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class GM : MonoBehaviour {
 
     public int lives;
+    public int balls;
     public GameObject ball;
     public Transform ballspawn;
     internal static object Instance;
-    private Transform existedball;
+    public Transform existedball;
     public Transform plane;
     public Text hptext;
+    public Text balltext;
+
+
 
     // Use this for initialization
     void Start () {
@@ -21,11 +25,23 @@ public class GM : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         hptext.text = ""+lives;
-	}
-    public void LoseLife()
+        balltext.text = "" +balls;
+    }
+    public void LoseBall()
     {
-        lives--;
+        balls--;
         existedball = Instantiate(ball, ballspawn.position, ballspawn.rotation).transform;
         existedball.SetParent(plane);
+    }
+    public void takedamage()
+    {
+        lives--;
+    }
+    public void shoot()
+    {
+        if (existedball.GetComponent<balls>().state == 0)
+        {
+            existedball.GetComponent<balls>().state = 1;
+        }
     }
 }

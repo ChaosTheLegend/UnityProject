@@ -14,12 +14,17 @@ public class destroyer : MonoBehaviour {
 	void Update () {
 		
 	}
-	void  OnTriggerEnter2D(Collider2D other)
-	{
-		
-		Destroy(other.gameObject);
-        controller.GetComponent<GM>().LoseLife();
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "ball" || other.name == "ball(Clone)")
+        {
+            Destroy(other.gameObject);
+            controller.GetComponent<GM>().LoseBall();
+        }
+        if (other.name == "Bullet1" || other.name == "Bullet1(Clone)")
+        {
+            Destroy(other.gameObject);
+        }
     }
 	
 }	

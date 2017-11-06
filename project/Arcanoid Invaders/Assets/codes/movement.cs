@@ -6,26 +6,26 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class movement : MonoBehaviour {
 
-	public float speed;
-	public float maxtilt;
-	float moveHorizontal;
+    public Camera main;
+	private float mousex;
     Rigidbody2D rb;
+    public GameObject controller;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
 	}
 
-    public void buttonreleased()
+
+
+    void FixedUpdate () {
+        mousex = Input.mousePosition.x;
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousex, 25f, 10f));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.8f, 7.8f), transform.position.y, transform.position.z);
+    }
+
+    public void damage()
     {
-        moveHorizontal = 0;
+        controller.GetComponent<GM>().takedamage();
     }
-
-        void FixedUpdate () {
-        moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x + (moveHorizontal * speed/100), -7.7f, 7.7f), -4.4f, 0f);
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(-moveHorizontal * speed,-maxtilt, maxtilt));
-    }
-
 }
