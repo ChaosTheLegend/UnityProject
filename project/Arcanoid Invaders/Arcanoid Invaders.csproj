@@ -229,8 +229,11 @@
     <Compile Include="Assets\codes\bullet.cs" />
     <Compile Include="Assets\codes\destroyer.cs" />
     <Compile Include="Assets\codes\enemyAI.cs" />
+    <Compile Include="Assets\codes\enemymovement.cs" />
     <Compile Include="Assets\codes\GM.cs" />
     <Compile Include="Assets\codes\movement.cs" />
+    <Compile Include="Assets\codes\Spawning.cs" />
+    <Compile Include="Assets\codes\waypoints.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

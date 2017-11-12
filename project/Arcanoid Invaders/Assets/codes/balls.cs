@@ -23,7 +23,6 @@ public class balls : MonoBehaviour {
 		}
         if (state == 1)
         {
-            print("shoot");
             rb.isKinematic = false;
             transform.parent = null;
             rb.AddForce(new Vector3(force, force, 0f));
