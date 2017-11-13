@@ -24,4 +24,11 @@ public class enemyAI : MonoBehaviour {
             Instantiate(bullet, bulspawn.position, bulspawn.rotation);
         }
 	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "ball(Clone)" || collision.gameObject.name == "ball") 
+        {  
+        Destroy(gameObject);
+        }
+    }
 }

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Spawning : MonoBehaviour {
 
+    public GameObject controller;
     public GameObject[] enemies;
     public Transform[] pathes;
     int[,] spawncount;
-    int wave = 1;
+    public int wave = 0;
     float timer;
-    public float delay;
+    public bool spawn;
+    public float[] delay;
     int[] enemiesonscene;
     int totalenemies;
     int totalspawn;
@@ -19,9 +21,13 @@ public class Spawning : MonoBehaviour {
     {
         enemiesonscene = new int[enemies.Length];
         spawncount = new int[100, enemies.Length];
-        InvokeRepeating("spawnenemy", delay, delay);
-        spawncount[1, 0] = 10;
-        spawncount[2, 0] = 5;
+        spawncount[1, 0] = 1;
+        spawncount[2, 0] = 1;
+        spawncount[3, 0] = 1;
+        spawncount[4, 0] = 1;
+        spawncount[5, 0] = 1;
+
+        prespawn();
     }
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -31,7 +37,11 @@ public class Spawning : MonoBehaviour {
         }
         else
         {
-            timer = delay;
+            timer = delay[wave];
+            if (spawn)
+            {
+                spawnenemy();
+            }
         }
         for (int i = 0; i < enemies.Length; i++)
         {
@@ -47,13 +57,19 @@ public class Spawning : MonoBehaviour {
     {
         countenemies();
     }
+    void prespawn()
+    {
+        spawn = false;
+        controller.GetComponent<GM>().Wavedisstart(wave);
+    }
 
-    void spawnenemy()
+        void spawnenemy()
     {
         //print("spawning...");
         if (totalenemies == 0 && totalspawn == 0)
         {
             wave++;
+            prespawn();
         }
         else
         {

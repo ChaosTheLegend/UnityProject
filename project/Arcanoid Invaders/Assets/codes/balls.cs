@@ -33,9 +33,9 @@ public class balls : MonoBehaviour {
 			transform.Rotate (Vector3.forward * Time.deltaTime * rotationangle);
 		}
 	}
-	void OnTriggerEnter2D(Collider2D other) {
+	/*void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.name != "destroyer" && other.gameObject.name != "Bullet1" && other.gameObject.name != "Bullet1(Clone)") {
 			Destroy (other.gameObject, 0.02f);
 		}
-	}
+	}*/
 }
