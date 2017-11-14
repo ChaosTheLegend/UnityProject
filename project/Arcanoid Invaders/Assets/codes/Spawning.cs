@@ -21,11 +21,10 @@ public class Spawning : MonoBehaviour {
     {
         enemiesonscene = new int[enemies.Length];
         spawncount = new int[100, enemies.Length];
-        spawncount[1, 0] = 1;
-        spawncount[2, 0] = 1;
-        spawncount[3, 0] = 1;
-        spawncount[4, 0] = 1;
-        spawncount[5, 0] = 1;
+        
+        spawncount[1, 0] = 5;
+        spawncount[2, 0] = 10;
+        spawncount[3, 0] = 15;
 
         prespawn();
     }

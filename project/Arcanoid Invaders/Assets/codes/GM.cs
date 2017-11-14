@@ -55,7 +55,14 @@ public class GM : MonoBehaviour {
     }
     void Wavedisplay()
     {
-        Wavetext.text = "Wave "+wave;
+        if (wave == 0)
+        {
+            Wavetext.text = "Start!";
+        }
+        else
+        {
+            Wavetext.text = "Wave " + wave;
+        }
         if (Wavetextpos.position.y < 500f)
         {
             Wavedisspeed = Mathf.Pow(timer,2);
