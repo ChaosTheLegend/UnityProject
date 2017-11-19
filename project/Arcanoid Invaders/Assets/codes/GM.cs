@@ -63,25 +63,25 @@ public class GM : MonoBehaviour {
         {
             Wavetext.text = "Wave " + wave;
         }
-        if (Wavetextpos.position.y < 500f)
+		if (Wavetextpos.GetComponent<RectTransform>().anchoredPosition.y < 350f)
         {
             Wavedisspeed = Mathf.Pow(timer,2);
-            Wavetextpos.position = new Vector3(Wavetextpos.position.x, Wavetextpos.position.y + Wavedisspeed, 0f);
+			Wavetextpos.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, Wavetextpos.GetComponent<RectTransform>().anchoredPosition.y + Wavedisspeed);
         }
-        if (Wavetextpos.position.y > 500f)
+		if (Wavetextpos.GetComponent<RectTransform>().anchoredPosition.y > 350f)
         {
             display = false;
             Wavedisspeed = 0f;
-            Wavetextpos.position = new Vector3(Wavetextpos.position.x, -125f,0f);
+			Wavetextpos.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -350f);
             Spawner.GetComponent<Spawning>().spawn = true;
-            Wavetextpos.position = new Vector3(Wavetextpos.position.x, -125f, 0f);
+			Wavetextpos.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -350f);
         }
     }
 
     public void Wavedisstart(int curwave)
     {
         Wavedisspeed = 0f;
-        Wavetextpos.position = new Vector3(Wavetextpos.position.x, -125f, 0f);
+		Wavetextpos.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -350f);
         timer = -2.75f;
         wave = curwave;
         display = true;
