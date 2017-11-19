@@ -8,6 +8,7 @@ public class enemyAI : MonoBehaviour {
     public GameObject bullet;
     public float shootspeed;
     public float maxrange;
+    public int ShootingPattern;
     float timeleft;
 
 	// Use this for initialization
@@ -21,7 +22,16 @@ public class enemyAI : MonoBehaviour {
         if (timeleft <= 0)
         {
             timeleft = shootspeed + Random.Range(-maxrange, maxrange);
-            Instantiate(bullet, bulspawn.position, bulspawn.rotation);
+            if (ShootingPattern == 1)
+            {
+                Instantiate(bullet, bulspawn.position, bulspawn.rotation);
+            }
+            if (ShootingPattern == 2)
+            {
+                Instantiate(bullet, bulspawn.position, bulspawn.rotation);
+                Instantiate(bullet, bulspawn.position, bulspawn.rotation);
+                Instantiate(bullet, bulspawn.position, bulspawn.rotation);
+            }
         }
 	}
     private void OnCollisionEnter2D(Collision2D collision)
