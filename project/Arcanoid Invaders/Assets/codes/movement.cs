@@ -37,7 +37,7 @@ public class movement : MonoBehaviour {
 
     void FixedUpdate () {
         mousex = Input.mousePosition.x;
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousex, 25f, 10f));
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousex, 35f, 10f));
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.8f, 7.8f), transform.position.y, transform.position.z);
         if (hitable == false)
         {
@@ -52,11 +52,11 @@ public class movement : MonoBehaviour {
         }
     }
 
-    public void damage()
+    public void damage(int damage)
     {
         if (hitable)
         {
-            controller.GetComponent<GM>().takedamage();
+            controller.GetComponent<GM>().takedamage(damage);
             imune();
         }
     }

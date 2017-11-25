@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour {
     Rigidbody2D rb;
-    public float speed;
+    public int basedamage = 1;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(0f,-speed));
+        
     }
 	
 	// Update is called once per frame
@@ -21,7 +21,26 @@ public class bullet : MonoBehaviour {
     {
         if (other.name == "plane")
         {
-            other.GetComponent<movement>().damage();
+            if (GetComponent<Transform>().localScale.x < 2)
+            {
+                other.GetComponent<movement>().damage(basedamage);
+            }
+            else if (GetComponent<Transform>().localScale.x < 3)
+            {
+                other.GetComponent<movement>().damage(2*basedamage);
+            }
+            else if (GetComponent<Transform>().localScale.x < 4)
+            {
+                other.GetComponent<movement>().damage(3*basedamage);
+            }
+            else if (GetComponent<Transform>().localScale.x < 5)
+            {
+                other.GetComponent<movement>().damage(4*basedamage);
+            }
+            Destroy(gameObject);
+        }
+        if (other.name == "Shield")
+        {
             Destroy(gameObject);
         }
     }

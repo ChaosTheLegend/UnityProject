@@ -9,7 +9,6 @@ public class balls : MonoBehaviour {
 	public float state = 0;
 	public Transform folowingobj;
 	public float rotationangle;
-
 	private Rigidbody2D rb;
 	// Use this for initialization
 	void Awake() {

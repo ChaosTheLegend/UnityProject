@@ -21,7 +21,7 @@ public class destroyer : MonoBehaviour {
             Destroy(other.gameObject);
             controller.GetComponent<GM>().LoseBall();
         }
-        if (other.name == "Bullet1" || other.name == "Bullet1(Clone)")
+        if (other.tag == "bullet")
         {
             Destroy(other.gameObject);
         }
