@@ -1,4 +1,4 @@
-Android
+WindowsStandalone
 f22145f6f2fb77e86f5a152bd9e9b3ae Assembly-CSharp.dll:.PowerupSpawn
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
